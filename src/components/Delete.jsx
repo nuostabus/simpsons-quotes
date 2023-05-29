@@ -4,13 +4,12 @@ class Delete extends Component {
   render() {
     return (
       <div>
-        {/* <button onClick={this.props.delete}> Delete</button>{' '} */}
         <button
           onClick={() => {
-            this.props.delete(this.props.quote, this.props.character);
+            this.props.delete(this.props.id);
           }}
         >
-          Delete{' '}
+          Delete
         </button>
       </div>
     );

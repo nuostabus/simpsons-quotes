@@ -5,30 +5,25 @@ import Image from './Image';
 import Delete from './Delete';
 
 class Character extends Component {
-  state = { like: false };
-
-  onLikeToggle = () => {
-    this.setState({ like: !this.state.like });
-  };
-
   render() {
-    const { character, quote, image } = this.props.item;
-    const { like } = this.state;
+    const { character, quote, id, image, characterDirection, like } =
+      this.props.item;
+    const { onLikeToggle } = this.props;
 
     return (
       <div className="characterContainer">
         <Name
           character={character}
+          onLikeToggle={onLikeToggle}
+          id={id}
           like={like}
-          onLikeToggle={this.onLikeToggle}
         />
-        <Quote quote={quote} />
-        <Image image={image} like={like} />
-        <Delete
-          delete={this.props.delete}
-          quote={quote}
-          character={character}
-        />
+        <div className={characterDirection}>
+          <Quote quote={quote} />
+          <Image image={image} />
+        </div>
+
+        <Delete delete={this.props.delete} id={this.props.id} />
       </div>
     );
   }

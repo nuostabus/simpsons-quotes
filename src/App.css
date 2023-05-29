@@ -11,3 +11,12 @@
   background-color: aquamarine;
   width: 100%;
 }
+
+.Left {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.Right {
+  display: flex;
+}
