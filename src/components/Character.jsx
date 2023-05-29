@@ -12,16 +12,23 @@ class Character extends Component {
   };
 
   render() {
+    const { character, quote, image } = this.props.item;
+    const { like } = this.state;
+
     return (
       <div className="characterContainer">
         <Name
-          character={this.props.item.character}
-          like={this.state.like}
+          character={character}
+          like={like}
           onLikeToggle={this.onLikeToggle}
         />
-        <Quote quote={this.props.item.quote} />
-        <Image image={this.props.item.image} like={this.state.like} />
-        <Delete delete={this.props.delete} />
+        <Quote quote={quote} />
+        <Image image={image} like={like} />
+        <Delete
+          delete={this.props.delete}
+          quote={quote}
+          character={character}
+        />
       </div>
     );
   }

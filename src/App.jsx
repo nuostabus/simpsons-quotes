@@ -11,15 +11,17 @@ class App extends Component {
     const { data } = await axios.get(
       `https://thesimpsonsquoteapi.glitch.me/quotes?count=5`
     );
-    console.log('getting data');
     this.setState({ simpsons: data });
+    console.log(this.state);
   }
 
-  delete = (index) => {
-    const copy = [...this.state.simpsons];
-    console.log(copy);
-    copy.splice(index, 1);
-    this.setState({ simpsons: copy });
+  delete = (quote, character) => {
+    const indexOf = this.state.simpsons.findIndex((char) => {
+      return char.quote === quote && char.character === character;
+    });
+    const simpsons = [...this.state.simpsons];
+    simpsons.splice(indexOf, 1);
+    this.setState({ simpsons });
   };
 
   render() {

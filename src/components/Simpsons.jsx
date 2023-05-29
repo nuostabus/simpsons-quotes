@@ -10,7 +10,6 @@ class Simpsons extends Component {
         {simpsons.map((item) => {
           return (
             <Character
-              onClick={this.charIndexViewer}
               item={item}
               key={item.quote + item.character}
               delete={this.props.delete}
